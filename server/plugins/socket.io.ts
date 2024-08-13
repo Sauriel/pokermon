@@ -1,24 +1,31 @@
 import type { NitroApp } from "nitropack";
 import { Server as Engine } from "engine.io";
-import { Server } from "socket.io";
+import { Server, Socket } from "socket.io";
 import { defineEventHandler } from "h3";
+import { ChatMessage } from "~/components/chatMessage";
+
+const sockets: Socket[] = [];
+
+export function sendMessages(message: ChatMessage) {
+  sockets.forEach((socket) => {
+    socket.emit('message-channel', message);
+  });
+}
 
 export default defineNitroPlugin((nitroApp: NitroApp) => {
   const engine = new Engine();
   const io = new Server();
 
+  // @ts-ignore type conversion
   io.bind(engine);
 
   io.on("connection", (socket) => {
-    nitroApp.router.post('/api/chat', async (event) => {
-      const body = await readBody(event);
-      socket.emit('message-channel', body);
-      return body.value;
-    });
+    sockets.push(socket);
   });
 
   nitroApp.router.use("/socket.io/", defineEventHandler({
     handler(event) {
+      // @ts-ignore type conversion
       engine.handleRequest(event.node.req, event.node.res);
       event._handled = true;
     },
