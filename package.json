@@ -10,7 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "engine.io": "^6.6.0",
     "nuxt": "^3.12.4",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
     "vue": "latest"
   }
 }
