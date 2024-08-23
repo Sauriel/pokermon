@@ -1,4 +1,4 @@
-export type Room = {
+export type Arena = {
   id: string;
   created: Date;
   lastUsed: Date;

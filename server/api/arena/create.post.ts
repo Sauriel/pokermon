@@ -1,6 +1,6 @@
 import randomHex from '~/utils/randomHex';
-import type { Room } from '~/server/room/types';
-import { existsNot, addRoom } from '~/server/room/cache';
+import type { Arena } from '~/server/arena/types';
+import { existsNot, addArena } from '~/server/arena/cache';
 
 export default defineEventHandler(async (event) => {
   let id = '';
@@ -11,11 +11,11 @@ export default defineEventHandler(async (event) => {
     }
   }
   const now = new Date();
-  const room: Room = {
+  const arena: Arena = {
     id,
     created: now,
     lastUsed: now,
   }
-  addRoom(room);
+  addArena(arena);
   return id;
 })

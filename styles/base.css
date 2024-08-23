@@ -1,0 +1,27 @@
+:root {
+  --color-backgrund: #272935;
+  --color-backgrund-transparent-50: color-mix(in srgb, transparent, var(--color-backgrund) 50%);
+  --color-backgrund-transparent-75: color-mix(in srgb, transparent, var(--color-backgrund) 75%);
+  --color-text: #c7c8ca;
+  --color-text-transparent-50: color-mix(in srgb, transparent, var(--color-text) 50%);
+}
+
+body {
+  background-color: var(--color-backgrund);
+  background-image: url("/images/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  font-family: "Maven Pro", Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap');
+
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('fonts/pokemon_solid-webfont.woff2') format('woff2'),
+        url('fonts/pokemon_solid-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pokemon Hollow';
+  src: url('fonts/pokemon_hollow-webfont.woff2') format('woff2'),
+        url('fonts/pokemon_hollow-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

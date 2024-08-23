@@ -1,24 +1,25 @@
 <template>
   <div id="welcome-screen">
-    <UiButton @click="createNewRoom">Create Room</UiButton>
+    <Welcome />
+    <UiButton @click="createNewArena">Create a new Arena</UiButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-function createNewRoom() {
-  $fetch('/api/room/create', { method: 'POST' })
-    .then((roomId) => {
-      navigateTo(`/room/${roomId}`);
+function createNewArena() {
+  $fetch('/api/arena/create', { method: 'POST' })
+    .then((arenaId) => {
+      navigateTo(`/arena/${arenaId}`);
     });
 }
 </script>
 
 <style scoped>
 #welcome-screen {
-  height: 100%;
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 </style>
